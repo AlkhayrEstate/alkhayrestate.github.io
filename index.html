@@ -5,34 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estate Planning Services</title>
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: auto;
-            background: white;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1, h2 {
-            color: #333;
+            color: var(--secondary-color);
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
         .package {
-            background: #e9e9e9;
-            padding: 10px;
-            margin-bottom: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .package:hover {
+            transform: translateY(-5px);
+        }
+        .package h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .price {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .services, .contact {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         .quote {
             font-style: italic;
-            background: #f9f9f9;
-            padding: 10px;
-            border-left: 5px solid #333;
-            margin-bottom: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .quote p:last-child {
+            text-align: right;
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -41,41 +82,45 @@
         <h1>Estate Planning Services</h1>
         
         <h2>Our Packages</h2>
-        <div class="package">
-            <h3>Pakej Hibah & Wasiat</h3>
-            <p>Two products for specific asset gifting to loved ones, whether heirs or non-heirs.</p>
-            <p>Price: RM 1,588</p>
-        </div>
-        <div class="package">
-            <h3>Pakej Warisan</h3>
-            <p>Complete estate planning package including asset distribution and executor appointment.</p>
-            <p>Price: RM 1,888</p>
-        </div>
-        <div class="package">
-            <h3>Pakej Legasi</h3>
-            <p>Exclusive package combining three instruments: hibah, will, and trust.</p>
-            <p>Price: RM 2,988</p>
-        </div>
-        <div class="package">
-            <h3>Pakej Keluarga</h3>
-            <p>Two wills package for family members.</p>
-            <p>Price: RM 2,238</p>
-        </div>
-        <div class="package">
-            <h3>Pakej Wasiat</h3>
-            <p>Appoint an estate administrator (Wasi) to manage the testator's assets.</p>
-            <p>Price: RM 938</p>
+        <div class="package-grid">
+            <div class="package">
+                <h3>Pakej Hibah & Wasiat</h3>
+                <p>Two products for specific asset gifting to loved ones.</p>
+                <p class="price">RM 1,588</p>
+            </div>
+            <div class="package">
+                <h3>Pakej Warisan</h3>
+                <p>Complete estate planning package.</p>
+                <p class="price">RM 1,888</p>
+            </div>
+            <div class="package">
+                <h3>Pakej Legasi</h3>
+                <p>Exclusive package: hibah, will, and trust.</p>
+                <p class="price">RM 2,988</p>
+            </div>
+            <div class="package">
+                <h3>Pakej Keluarga</h3>
+                <p>Two wills package for family members.</p>
+                <p class="price">RM 2,238</p>
+            </div>
+            <div class="package">
+                <h3>Pakej Wasiat</h3>
+                <p>Appoint an estate administrator (Wasi).</p>
+                <p class="price">RM 938</p>
+            </div>
         </div>
 
-        <h2>Our Services</h2>
-        <ul>
-            <li>Consultation on estate administration</li>
-            <li>Preparation of Will, Hibah, and Trust documents</li>
-            <li>Estate administrator (Wasi) services</li>
-            <li>Will declaration</li>
-            <li>Obtaining Grant of Probate from High Court</li>
-            <li>Ensuring proper distribution of estate assets</li>
-        </ul>
+        <div class="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Estate administration consultation</li>
+                <li>Will, Hibah, and Trust document preparation</li>
+                <li>Estate administrator (Wasi) services</li>
+                <li>Will declaration</li>
+                <li>Obtaining Grant of Probate</li>
+                <li>Proper distribution of estate assets</li>
+            </ul>
+        </div>
 
         <h2>Islamic Perspective</h2>
         <div class="quote">
@@ -87,10 +132,12 @@
             <p>- Al-Baqarah 2:180</p>
         </div>
 
-        <h2>Contact Us</h2>
-        <p>Suite 17-3A, Studio Fourteen, Persiaran Perbandaran, Section 14, 40000 Shah Alam, Selangor.</p>
-        <p>Tel: 03-5523 9249</p>
-        <p>Email: xxxxx@mijplaw.com</p>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>Suite 17-3A, Studio Fourteen, Persiaran Perbandaran, Section 14, 40000 Shah Alam, Selangor.</p>
+            <p>Tel: 03-5523 9249</p>
+            <p>Email: xxxxx@mijplaw.com</p>
+        </div>
     </div>
 </body>
 </html>
