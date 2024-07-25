@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #50c878;
-            --accent-color: #ff6b6b;
-            --text-color: #333;
-            --bg-color: #f4f7f6;
+            --primary-color: #d4af37; /* Gold */
+            --secondary-color: #ffd700; /* Brighter gold */
+            --accent-color: #ffdf00; /* Yellow gold */
+            --text-color: #ffffff; /* White text */
+            --bg-color: #000000; /* Black background */
         }
         
         * {
@@ -35,13 +35,13 @@
         
         header {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--bg-color);
             padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(212,175,55,0.3);
         }
         
         nav ul {
@@ -55,7 +55,7 @@
         }
         
         nav ul li a {
-            color: white;
+            color: var(--bg-color);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
@@ -66,7 +66,7 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -74,7 +74,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: var(--primary-color);
         }
         
         .hero h1 {
@@ -91,7 +91,7 @@
         .btn {
             display: inline-block;
             background-color: var(--secondary-color);
-            color: white;
+            color: var(--bg-color);
             padding: 12px 24px;
             text-decoration: none;
             border-radius: 5px;
@@ -99,7 +99,7 @@
         }
         
         .btn:hover {
-            background-color: #45b069;
+            background-color: var(--accent-color);
         }
         
         .section {
@@ -110,6 +110,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
+            color: var(--primary-color);
         }
         
         .packages {
@@ -119,9 +120,10 @@
         }
         
         .package {
-            background-color: white;
+            background-color: var(--bg-color);
+            border: 2px solid var(--primary-color);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(212,175,55,0.1);
             padding: 30px;
             width: calc(33.333% - 20px);
             margin-bottom: 30px;
@@ -151,11 +153,12 @@
         }
         
         .service {
-            background-color: white;
+            background-color: var(--bg-color);
+            border: 2px solid var(--primary-color);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(212,175,55,0.1);
             transition: transform 0.3s ease;
         }
         
@@ -171,7 +174,7 @@
         
         .quotes {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--bg-color);
         }
         
         .quote {
@@ -191,9 +194,49 @@
             font-weight: 600;
         }
         
+        .contact-form {
+            background-color: var(--bg-color);
+            border: 2px solid var(--primary-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(212,175,55,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .form-submit {
+            text-align: center;
+        }
+        
         footer {
-            background-color: #333;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
             text-align: center;
             padding: 20px 0;
         }
@@ -215,11 +258,11 @@
     <header>
         <nav class="container">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">Laman Utama</a></li>
+                <li><a href="#packages">Pakej</a></li>
+                <li><a href="#services">Perkhidmatan</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#contact">Hubungi Kami</a></li>
             </ul>
         </nav>
     </header>
@@ -227,67 +270,60 @@
     <section id="home" class="hero">
         <div class="container">
             <h1>Alkhayr Estate Planning</h1>
-            <p>Secure your legacy with our comprehensive estate planning services.</p>
-            <a href="#contact" class="btn">Get Started</a>
+            <p>Pastikan legasi anda dengan perkhidmatan perancangan harta kami yang komprehensif.</p>
+            <a href="#contact" class="btn">Mula Sekarang</a>
         </div>
     </section>
 
     <section id="packages" class="section">
         <div class="container">
-            <h2 class="section-title">Our Packages</h2>
+            <h2 class="section-title">Pakej Kami</h2>
             <div class="packages">
                 <div class="package">
                     <h3>Pakej Hibah & Wasiat</h3>
-                    <p>Two products for specific asset gifting to loved ones.</p>
+                    <p>Pakej Hibah dan Wasiat (2 Produk) Pemberian harta mengikut hasrat pemilik harta khusus untuk orang kesayangan sama ada waris atau bukan waris bertujuan untuk menjamin dan memelihara hak-hak mereka.</p>
                     <div class="price">RM 1,588</div>
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="#" class="btn">Ketahui Lebih Lanjut</a>
                 </div>
                 <div class="package">
                     <h3>Pakej Warisan</h3>
-                    <p>Complete estate planning package.</p>
+                    <p>Pakej Pentadbiran Harta Pusaka dan Wasiat (2 Produk) Pakej merancang harta yang lengkap merangkumi pengagihan aset, pelantikan Pentadbir Harta (Wasi), serta meringankan bebanan ahli waris si mati.</p>
                     <div class="price">RM 1,888</div>
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="#" class="btn">Ketahui Lebih Lanjut</a>
                 </div>
                 <div class="package">
                     <h3>Pakej Legasi</h3>
-                    <p>Exclusive package: hibah, will, and trust.</p>
-                    <div class="price">RM 2,988</div>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-                <div class="package">
-                    <h3>Pakej Keluarga</h3>
-                    <p>Two wills package for family members.</p>
-                    <div class="price">RM 2,238</div>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-                <div class="package">
-                    <h3>Pakej Wasiat</h3>
-                    <p>Appoint an estate administrator (Wasi).</p>
-                    <div class="price">RM 938</div>
-                    <a href="#" class="btn">Learn More</a>
+                    <p>Pakej Hibah, Wasiat, dan Amanah (3 Produk) Pakej pengurusan harta pusaka yang lengkap untuk memberi lebih banyak pilihan kepada perancangan harta masa depan, khusus untuk lebih menjamin kelangsungan legasi dan menghindari pertikaian harta pusaka.</p>
+                    <div class="price">RM 2,288</div>
+                    <a href="#" class="btn">Ketahui Lebih Lanjut</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section">
+    <section id="services" class="section services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title">Perkhidmatan Kami</h2>
             <div class="services">
                 <div class="service">
-                    <i class="fas fa-file-signature"></i>
-                    <h3>Document Preparation</h3>
-                    <p>We prepare all necessary legal documents for your estate plan.</p>
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Penasihat Wasiat</h3>
+                    <p>Menyediakan nasihat yang diperibadikan untuk memastikan rancangan anda memenuhi semua keperluan undang-undang.</p>
                 </div>
                 <div class="service">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Consultation</h3>
-                    <p>Get expert advice on estate administration and planning.</p>
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Pengurusan Amanah</h3>
+                    <p>Menubuhkan dan menguruskan amanah untuk menjamin legasi anda dilindungi.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Perlindungan Harta</h3>
+                    <p>Membantu anda menguruskan dan melindungi aset anda untuk generasi akan datang.</p>
                 </div>
                 <div class="service">
                     <i class="fas fa-balance-scale"></i>
-                    <h3>Legal Support</h3>
-                    <p>We provide ongoing legal support for your estate matters.</p>
+                    <h3>Pemindahan Harta</h3>
+                    <p>Menyelaraskan pemindahan aset anda dengan lancar kepada orang tersayang anda.</p>
                 </div>
             </div>
         </div>
@@ -295,48 +331,42 @@
 
     <section id="about" class="section quotes">
         <div class="container">
-            <h2 class="section-title">Islamic Perspective</h2>
             <div class="quote">
-                <p>"It is not right for any Muslim person who has anything to will to stay for two nights without having his last will and testament written and kept ready with him."</p>
-                - Hadith narrated by Bukhari and Muslim
+                <p>"Kami komited untuk membantu anda merancang masa depan dengan keyakinan dan ketenangan fikiran."</p>
+                Pasukan Perancang Harta Alkhayr
             </div>
         </div>
     </section>
 
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Emel</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesej</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Hantar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Alkhayr Estate Planning. All rights reserved.</p>
+            &copy; 2024 Alkhayr Estate Planning. Hak Cipta Terpelihara.
         </div>
     </footer>
-
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message. We will get back to you soon!');
-            this.reset();
-        });
-    </script>
 </body>
 </html>
