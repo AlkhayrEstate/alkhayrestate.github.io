@@ -1,372 +1,528 @@
 <!DOCTYPE html>
 <html lang="ms">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alkhayr Estate Planning</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #d4af37; /* Gold */
-            --secondary-color: #ffd700; /* Brighter gold */
-            --accent-color: #ffdf00; /* Yellow gold */
-            --text-color: #ffffff; /* White text */
-            --bg-color: #000000; /* Black background */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(212,175,55,0.3);
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: var(--bg-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--primary-color);
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--bg-color);
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: var(--accent-color);
-        }
-        
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-        }
-        
-        .packages {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .package {
-            background-color: var(--bg-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(212,175,55,0.1);
-            padding: 30px;
-            width: calc(33.333% - 20px);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-        
-        .package:hover {
-            transform: translateY(-10px);
-        }
-        
-        .package h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .package .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-        
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .service {
-            background-color: var(--bg-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(212,175,55,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .service:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .quotes {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-        }
-        
-        .quote {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            font-style: italic;
-        }
-        
-        .quote p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .quote cite {
-            font-style: normal;
-            font-weight: 600;
-        }
-        
-        .contact-form {
-            background-color: var(--bg-color);
-            border: 2px solid var(--primary-color);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(212,175,55,0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--primary-color);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-        }
-        
-        .form-submit {
-            text-align: center;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        @media (max-width: 1200px) {
-            .package {
-                width: calc(50% - 20px);
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alkhayr Estate Planning</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+        <style>
+            :root {
+                --primary-color: #e4ad4f; /* Gold */
+                --secondary-color: #f2c338; /* Brighter gold */
+                --accent-color: #e4ad4f; /* Yellow gold */
+                --text-color: #ffffff; /* White text */
+                --bg-color: #000000; /* Black background */
             }
-        }
-        
-        @media (max-width: 768px) {
-            .package {
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Poppins", sans-serif;
+                line-height: 1.6;
+                color: var(--text-color);
+                background-color: var(--bg-color);
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            header {
+                background-color: var(--primary-color);
+                color: var(--bg-color);
+                padding: 20px 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: center;
+                list-style-type: none;
+            }
+
+            nav ul li {
+                margin: 0 15px;
+            }
+
+            nav ul li a {
+                color: var(--bg-color);
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+
+            nav ul li a:hover {
+                color: var(--text-color);
+            }
+
+            .hero {
+                background: url("hero.png");
+                background-size: cover;
+                background-position: center;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: var(--primary-color);
+            }
+
+            .hero h1 {
+                text-transform: uppercase;
+                font-size: 3.5rem;
+                margin-bottom: 20px;
+                line-height: 1;
+                text-shadow: -3px -3px 0 #724800, 3px -3px 0 #724800, -3px 3px 0 #724800, 3px 3px 0 #724800;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                font-weight: 600;
+                max-width: 600px;
+                margin: 0 auto 30px;
+            }
+
+            .logo {
+                margin: 5%;
+                height: 20%;
+                width: 20%;
+                border-radius: 50%;
+            }
+
+            .btn {
+                text-transform: uppercase;
+                font-weight: 600;
+                display: inline-block;
+                background-color: var(--secondary-color);
+                color: var(--bg-color);
+                padding: 12px 24px;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn:hover {
+                background-color: var(--accent-color);
+                color: var(--text-color);
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 50px;
+                color: var(--primary-color);
+            }
+
+            .organization {
+                background-image: linear-gradient(to bottom right, var(--bg-color), #1d1d1d);
+            }
+
+            .organization img {
+                height: 100%;
                 width: 100%;
             }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav class="container">
-            <ul>
-                <li><a href="#home">Laman Utama</a></li>
-                <li><a href="#packages">Pakej</a></li>
-                <li><a href="#services">Perkhidmatan</a></li>
-                <li><a href="#about">Tentang Kami</a></li>
-                <li><a href="#contact">Hubungi Kami</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Alkhayr Estate Planning</h1>
-            <p>Pastikan legasi anda dengan perkhidmatan perancangan harta kami yang komprehensif.</p>
-            <a href="#contact" class="btn">Mula Sekarang</a>
-        </div>
-    </section>
+            .about {
+                background-color: #59421c;
+                display: grid;
+                grid-template-columns: auto auto;
+                padding: 50px 10%;
+                place-items: center;
+            }
 
-    <section id="packages" class="section">
-        <div class="container">
-            <h2 class="section-title">Pakej Kami</h2>
-            <div class="packages">
-                <div class="package">
-                    <h3>Pakej Hibah & Wasiat</h3>
-                    <p>Pakej Hibah dan Wasiat (2 Produk) Pemberian harta mengikut hasrat pemilik harta khusus untuk orang kesayangan sama ada waris atau bukan waris bertujuan untuk menjamin dan memelihara hak-hak mereka.</p>
-                    <div class="price">RM 1,588</div>
-                    <a href="#" class="btn">Ketahui Lebih Lanjut</a>
-                </div>
-                <div class="package">
-                    <h3>Pakej Warisan</h3>
-                    <p>Pakej Pentadbiran Harta Pusaka dan Wasiat (2 Produk) Pakej merancang harta yang lengkap merangkumi pengagihan aset, pelantikan Pentadbir Harta (Wasi), serta meringankan bebanan ahli waris si mati.</p>
-                    <div class="price">RM 1,888</div>
-                    <a href="#" class="btn">Ketahui Lebih Lanjut</a>
-                </div>
-                <div class="package">
-                    <h3>Pakej Legasi</h3>
-                    <p>Pakej Hibah, Wasiat, dan Amanah (3 Produk) Pakej pengurusan harta pusaka yang lengkap untuk memberi lebih banyak pilihan kepada perancangan harta masa depan, khusus untuk lebih menjamin kelangsungan legasi dan menghindari pertikaian harta pusaka.</p>
-                    <div class="price">RM 2,288</div>
-                    <a href="#" class="btn">Ketahui Lebih Lanjut</a>
+            .aboutus .btn {
+                margin-top: 5%;
+                text-align: right;
+            }
+
+            .grid-item .aboutus {
+                padding: 20px;
+            }
+
+            .grid-item img {
+                max-width: 75%;
+                height: 90%;
+                padding: 20px;
+                border-radius: 10%;
+            }
+
+            .packages {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .package {
+                background-color: var(--bg-color);
+                border: 2px solid var(--primary-color);
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+                padding: 30px;
+                width: calc(33.333% - 20px);
+                margin-bottom: 30px;
+                margin-right: 10px;
+                transition: transform 0.3s ease;
+            }
+
+            .package:hover {
+                transform: translateY(-10px);
+            }
+
+            .package h3 {
+                color: var(--primary-color);
+                margin-bottom: 15px;
+            }
+
+            .package .price {
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--accent-color);
+                margin-top: 20px;
+            }
+
+            .package .btn {
+                left: 0;
+                bottom: 10px;
+            }
+
+            .package a {
+                height: 100%;
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: space-between;
+            }
+
+            .services {
+                background: url("services.png");
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .serviceslist {
+                display: grid;
+                grid-template-columns: 350px 350px;
+                grid-row: auto auto;
+                gap: 30px;
+                place-items: center;
+            }
+
+            .service {
+                height: 200px;
+                background-color: var(--bg-color);
+                border: 2px solid var(--primary-color);
+                border-radius: 10px;
+                padding: 30px;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .service:hover {
+                transform: translateY(-10px);
+            }
+
+            .service i {
+                font-size: 3rem;
+                color: var(--primary-color);
+                margin-bottom: 20px;
+            }
+
+            .quotes {
+                background-color: var(--primary-color);
+                color: var(--bg-color);
+            }
+
+            .quote {
+                text-align: center;
+                max-width: 800px;
+                margin: 0 auto;
+                font-style: italic;
+            }
+
+            .quote p {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            .quote span {
+                font-weight: 600;
+                font-style: normal;
+            }
+
+            .quote cite {
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            .contacts {
+                background-color: var(--background-color);
+            }
+            .contact {
+                display: grid;
+                grid-template-columns: max-content auto;
+                place-items: center;
+            }
+            .contact-form {
+                background-color: var(--bg-color);
+                border: 2px solid var(--primary-color);
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+                width: 600px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .information h3 {
+                font-size: 2rem;
+                color: #9b9b9b;
+            }
+
+            .information p {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 600;
+                color: var(--text-color);
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid var(--primary-color);
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            .form-group textarea {
+                height: 150px;
+            }
+
+            .form-submit {
+                text-align: center;
+            }
+
+            footer {
+                background-color: var(--primary-color);
+                color: var(--bg-color);
+                text-align: center;
+                padding: 20px 0;
+            }
+
+            @media (max-width: 1200px) {
+                .package {
+                    width: calc(50% - 20px);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .package {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="container">
+                <ul>
+                    <li><a href="#home">Laman Utama</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#organization">Organisasi</a></li>
+                    <li><a href="#services">Perkhidmatan</a></li>
+                    <li><a href="#packages">Pakej</a></li>
+                    <li><a href="#contact">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="container">
+                <img class="logo" src="logo.png" alt="Logo" />
+                <h1>Alkhayr Estate Planning<br />Agency Sdn Bhd</h1>
+                <p>Pastikan legasi anda dilindungi dengan perkhidmatan perancangan harta kami yang komprehensif.</p>
+                <a href="#contact" class="btn">Mula Sekarang</a>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="grid-item"><img src="logo.png" alt="Logo" /></div>
+            <div class="grid-item">
+                <div class="aboutus">
+                    <h2 class="section-title">Tentang Kami</h2>
+                    <p><b>ALKHAYR ESTATE PLANNING AGENCY SDN BHD</b> merupakan sebuah syarikat yang ditubuhkan untuk memberi khidmat nasihat dan konsultasi mengenai perancangan harta pusaka individu. Produk dan perkhidmatan yang ditawarkan termasuklah penyediaan wasiat, hibah, surat ikatan amanah hayat, dan perkara-perkara lain yang berkaitan dengan perancangan harta pusaka.</p>
+                    <a href="#contact" class="btn">Learn more ></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="services" class="section services">
-        <div class="container">
-            <h2 class="section-title">Perkhidmatan Kami</h2>
-            <div class="services">
-                <div class="service">
-                    <i class="fas fa-file-contract"></i>
-                    <h3>Penasihat Wasiat</h3>
-                    <p>Menyediakan nasihat yang diperibadikan untuk memastikan rancangan anda memenuhi semua keperluan undang-undang.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3>Pengurusan Amanah</h3>
-                    <p>Menubuhkan dan menguruskan amanah untuk menjamin legasi anda dilindungi.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Perlindungan Harta</h3>
-                    <p>Membantu anda menguruskan dan melindungi aset anda untuk generasi akan datang.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>Pemindahan Harta</h3>
-                    <p>Menyelaraskan pemindahan aset anda dengan lancar kepada orang tersayang anda.</p>
+        <section id="organization" class="section organization">
+            <div class="container">
+                <h2 class="section-title">Organisasi Kami</h2>
+                <img class="chart" src="chart.png" alt="Chart" />
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="container">
+                <h2 class="section-title">Perkhidmatan Kami</h2>
+                <div class="serviceslist">
+                    <div class="service">
+                        <i class="fas fa-file-contract"></i>
+                        <h3>Penasihat Wasiat</h3>
+                        <p>Menyediakan khidmat nasihat yang diperibadikan untuk memastikan niat anda memenuhi semua keperluan undang-undang.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Pengurusan Amanah</h3>
+                        <p>Menguruskan amanah untuk memastikan legasi anda dilindungi.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Perlindungan Harta</h3>
+                        <p>Membantu anda menguruskan dan melindungi aset anda untuk generasi akan datang.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Pemindahan Harta</h3>
+                        <p>Memastikan proses pemindahan aset berjalan lancar kepada orang tersayang.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="section quotes">
-        <div class="container">
-            <div class="quote">
-                <p>"Kami komited untuk membantu anda merancang masa depan dengan keyakinan dan ketenangan fikiran."</p>
-                Pasukan Perancang Harta Alkhayr
+        <section id="packages" class="section">
+            <div class="container">
+                <h2 class="section-title">Pakej Kami</h2>
+                <div class="packages">
+                    <div class="package">
+                        <a href="#">
+                            <div class="detail">
+                                <h3>Pakej Wasiat</h3>
+                                <p>Pakej Wasiat (1 Produk) Melantik Pentadbir Harta (Wasi) bagi menguruskan harta Pewasiat.</p>
+                            </div>
+                            <div class="price">RM 938</div>
+                        </a>
+                    </div>
+                    <div class="package">
+                        <a href="#">
+                            <div class="detail">
+                                <h3>Pakej Hibah & Wasiat</h3>
+                                <p>Pakej Hibah dan Wasiat (2 Produk) Pemberian harta mengikut hasrat pemilik harta khusus untuk orang kesayangan sama ada waris atau bukan waris bertujuan untuk menjamin dan memelihara hak-hak mereka.</p>
+                            </div>
+                            <div class="price">RM 1,588</div>
+                        </a>
+                    </div>
+                    <div class="package">
+                        <a href="#">
+                            <div class="detail">
+                                <h3>Pakej Warisan</h3>
+                                <p>Pakej Pentadbiran Harta Pusaka dan Wasiat (2 Produk) Pakej merancang harta yang lengkap merangkumi pengagihan aset, pelantikan Pentadbir Harta (Wasi), serta meringankan bebanan ahli waris si mati.</p>
+                            </div>
+                            <div class="price">RM 1,888</div>
+                        </a>
+                    </div>
+                    <div class="package">
+                        <a href="#">
+                            <div class="detail">
+                                <h3>Pakej Keluarga</h3>
+                                <p>Pakej 2 Wasiat (2 Produk) Pakej wasiat khusus untuk dua (2) ahli keluarga sama ada suami dan isteri, ibu/bapa dan anak atau dua (2) ahli keluarga terdekat. Penjimatan harga yang berbaloi untuk dua (2) wasiat.</p>
+                            </div>
+                            <div class="price">RM 2,238</div>
+                        </a>
+                    </div>
+                    <div class="package">
+                        <a href="#">
+                            <div class="detail">
+                                <h3>Pakej Legasi</h3>
+                                <p>Pakej Hibah, Wasiat, dan Amanah (3 Produk) Pakej eksklusif yang mengandungi gabungan tiga (3) instrumen terdiri daripada hibah, wasiat, dan amanah.</p>
+                            </div>
+                            <div class="price">RM 3,988</div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section">
-        <div class="container">
+        <section id="quote" class="section quotes">
+            <div class="container">
+                <div class="quote">
+                    <p>"Kami komited untuk membantu anda merancang masa depan dengan keyakinan dan ketenangan fikiran."</p>
+                    <span>Pasukan Perancang Harta AlKhayr</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contacts">
             <h2 class="section-title">Hubungi Kami</h2>
-            <div class="contact-form">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Emel</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mesej</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <div class="form-submit">
-                        <button type="submit" class="btn">Hantar</button>
-                    </div>
-                </form>
+            <div class="container contact">
+                <div class="grid-item contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Nombor Telefon</label>
+                            <input type="text" id="phone" name="phone" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Emel</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesej</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn">Hantar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="grid-item information">
+                    <h3>Alamat</h3>
+                    <p>Suite 17-3A, Studio Fourteen, <br />Persiaran Perbandaran, Section 14, <br />40000 Shah Alam, <br />Selangor.</p>
+                    <h3>Nombor Telefon</h3>
+                    <p>03-5523 9249</p>
+                    <h3>Emel</h3>
+                    <p>enquiries@alkhayr.com</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            &copy; 2024 Alkhayr Estate Planning. Hak Cipta Terpelihara.
-        </div>
-    </footer>
-</body>
+        <footer>
+            <div class="container">&copy; 2024 Alkhayr Estate Planning. Hak Cipta Terpelihara.</div>
+        </footer>
+    </body>
 </html>
